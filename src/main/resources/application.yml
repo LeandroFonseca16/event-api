@@ -11,4 +11,6 @@ spring:
     jpa:
       show-sql: true
 
-    flyway: true
+    flyway:
+    enabled: true
+    locations: classpath:db/migration

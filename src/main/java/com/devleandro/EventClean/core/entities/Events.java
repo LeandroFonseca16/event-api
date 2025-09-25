@@ -6,16 +6,17 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 
-public record Event(
-        String name,
+public record Events(
         Long id,
+        String name,
         String description,
-        LocalDateTime startAt, Date endAt,
+        LocalDateTime startAt,
+        LocalDateTime endAt,
         Integer capacity,
-        String local,
+        String eventLocal,
         String organizer,
-        EventType type,
-        String identity
+        String event_identity,
+        EventType type
 ) {
 
 
