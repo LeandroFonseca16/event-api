@@ -16,7 +16,7 @@ public record Events(
         String eventLocal,
         String organizer,
         String event_identity,
-        EventType type
+        EventType eventType
 ) {
 
 

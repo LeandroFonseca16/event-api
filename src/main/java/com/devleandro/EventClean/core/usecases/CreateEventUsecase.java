@@ -2,7 +2,7 @@ package com.devleandro.EventClean.core.usecases;
 
 import com.devleandro.EventClean.core.entities.Events;
 
-public interface searchEventCase {
+public interface CreateEventUsecase {
 
-    public Events execute (Events event);
+    public Events execute(Events event);
 }
