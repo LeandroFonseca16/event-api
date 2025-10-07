@@ -27,5 +27,7 @@ public class EntityEvent {
     private String organizer;
     private String eventIdentity;
     @Enumerated(EnumType.STRING)
-    private EventType type;
+    @Column(name = "event_type")
+    private EventType eventType;
+
 }

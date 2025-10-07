@@ -13,4 +13,8 @@ public class SearchEventCaseImpl implements SearchEventUsecase {
         this.gatewayEvent = gatewayEvent;
     }
 
+    @Override
+    public Events execute(Events event) {
+        return null;
+    }
 }
