@@ -7,6 +7,7 @@ import com.devleandro.EventClean.infra.persistence.EntityEvent;
 import com.devleandro.EventClean.infra.persistence.EventRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -26,6 +27,20 @@ public class GatewayRepositoryEvent implements GatewayEvent {
         EntityEvent newEvent = eventRepository.save(entity);
         return mapper.toDomain(newEvent);
     }
+
+    @Override
+    public List<Events> listEvent() {
+        return eventRepository.findAll().stream().map(mapper::toDomain).toList();
+    }
+
+//    @Override
+//    public List<Events> listEvent() {
+//        EntityEvent entity = mapper.toEntity(events);
+//        List<EntityEvent> searchEvent = eventRepository.findAll(entity);
+//        return Collections.singletonList(mapper.toDomain((EntityEvent) searchEvent));
+//    }
+
+
 
 }
 

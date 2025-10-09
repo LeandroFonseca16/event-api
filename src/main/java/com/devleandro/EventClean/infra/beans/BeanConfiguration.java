@@ -16,6 +16,12 @@ public class BeanConfiguration {
         return new CreateEventCaseImpl(gatewayEvent);
     }
 
+    @Bean
+    public SearchEventUsecase searchEvent(GatewayEvent gatewayEvent){
+        return new SearchEventCaseImpl(gatewayEvent);
+
+    }
+
 
 }
 

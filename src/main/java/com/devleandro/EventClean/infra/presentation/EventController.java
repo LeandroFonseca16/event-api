@@ -9,6 +9,7 @@ import com.devleandro.EventClean.infra.mapper.DtoEventMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/")
@@ -28,5 +29,10 @@ public class EventController {
     public DtoEvent createEvent(@RequestBody DtoEvent dtoEvent) {
         Events newEvent = createEventCase.execute(dtoEventMapper.toEntities(dtoEvent));
         return dtoEventMapper.toDto(newEvent);
+    }
+
+    @GetMapping("searchevent")
+    public List<DtoEvent> searchEvent(){
+        return searchEventCase.execute().stream().map(dtoEventMapper::toDto).collect(Collectors.toList());
     }
 }

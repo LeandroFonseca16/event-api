@@ -14,7 +14,7 @@ public class SearchEventCaseImpl implements SearchEventUsecase {
     }
 
     @Override
-    public Events execute(Events event) {
-        return null;
+    public List<Events> execute() {
+        return gatewayEvent.listEvent();
     }
 }
