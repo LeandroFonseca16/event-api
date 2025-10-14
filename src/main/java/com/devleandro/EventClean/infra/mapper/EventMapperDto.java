@@ -1,14 +1,14 @@
 package com.devleandro.EventClean.infra.mapper;
 
 import com.devleandro.EventClean.core.entities.Events;
-import com.devleandro.EventClean.infra.dtos.DtoEvent;
+import com.devleandro.EventClean.infra.dtos.EventDto;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DtoEventMapper {
+public class EventMapperDto {
 
-    public DtoEvent toDto(Events events){
-        return new DtoEvent(
+    public EventDto toDto(Events events){
+        return new EventDto(
                 events.id(),
                 events.name(),
                 events.description(),
@@ -22,7 +22,7 @@ public class DtoEventMapper {
         );
     }
 
-    public Events toEntities (DtoEvent dtoEvent){
+    public Events toEntities (EventDto dtoEvent){
         return new Events(
                 dtoEvent.id(),
                 dtoEvent.name(),

@@ -4,7 +4,7 @@ import com.devleandro.EventClean.core.enums.EventType;
 
 import java.time.LocalDateTime;
 
-public record DtoEvent(
+public record EventDto(
         Long id,
         String name,
         String description,
