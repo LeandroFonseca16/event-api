@@ -22,4 +22,15 @@ public class ControllerExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
 
     }
+
+    @ExceptionHandler(NotFoundEventException.class)
+    public ResponseEntity<Map<String, String>> handleNotFoundKeyExceptions(NotFoundEventException exception){
+
+        Map<String, String> response = new HashMap<>();
+        response.put("Erro:", exception.getMessage());
+        response.put("Message:", "Request not found, check the identifier again.");
+
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+
+    }
 }
