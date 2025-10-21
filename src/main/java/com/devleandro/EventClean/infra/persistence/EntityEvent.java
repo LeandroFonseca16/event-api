@@ -25,6 +25,7 @@ public class EntityEvent {
     private Integer capacity;
     private String eventLocal;
     private String organizer;
+    @Column(name = "event_identity")
     private String eventIdentity;
     @Enumerated(EnumType.STRING)
     @Column(name = "event_type")
