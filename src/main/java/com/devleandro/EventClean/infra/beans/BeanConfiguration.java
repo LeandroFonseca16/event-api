@@ -1,7 +1,9 @@
 package com.devleandro.EventClean.infra.beans;
 
 import com.devleandro.EventClean.core.gateway.EventGateway;
+import com.devleandro.EventClean.core.services.EventIdGenerator;
 import com.devleandro.EventClean.core.usecases.*;
+import com.devleandro.EventClean.infra.services.id.RandomIdGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,24 +11,22 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
 
     @Bean
-    public CreateEventUsecase createEvent(EventGateway gatewayEvent){
-        return new CreateEventCaseImpl(gatewayEvent);
+    public CreateEventUsecase createEvent(EventGateway gatewayEvent, EventIdGenerator idGenerator) {
+        return new CreateEventCaseImpl(gatewayEvent, idGenerator);
     }
 
     @Bean
-    public SearchEventUsecase searchEvent(EventGateway gatewayEvent){
+    public SearchEventUsecase searchEvent(EventGateway gatewayEvent) {
         return new SearchEventCaseImpl(gatewayEvent);
-
     }
 
     @Bean
-    public FilterIdentifierEventUseCase filterEvent(EventGateway eventGateway){
+    public FilterIdentifierEventUseCase filterEvent(EventGateway eventGateway) {
         return new FilterIdentifierEventCaseImpl(eventGateway);
-
     }
 
-
+    @Bean
+    public EventIdGenerator eventIdGenerator() {
+        return new RandomIdGenerator();
+    }
 }
-
-
-
